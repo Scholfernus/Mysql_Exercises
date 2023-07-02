@@ -1,4 +1,5 @@
 use orders_db
+
 create or rename table order_statuses(
 order_ststus_id int auto_increment primary key,
 customer_name varchar(100) not null
@@ -16,7 +17,7 @@ create table orders222 (
   references order_statuses(order_status_id)
 )
 select * from orders222
-
+-- drobne zmiany 
 create table if not exists customer (
   customer_id int auto_increment primary key,
   customer_name varchar(50) not null,

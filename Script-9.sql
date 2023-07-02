@@ -16,4 +16,6 @@ show columns from orders
 
 alter table orders rename zamowienia
 alter table zamowienia rename orders
-alter table orders add decription varchar(200) not NULL
+alter table orders add decription varchar(200) not null
+
+alter table orders add names varchar(50) after order_id

@@ -4,7 +4,7 @@ trade varchar(40) not null,
 number_of_employees int not null default 0
 )
 
-CREATE TABLE employement.job_offers (
+create table employement.job_offers (
 offer_id int auto_increment primary key not null,
 offer_title varchar(40)not null,
 offer_min_salary decimal not null,
@@ -13,12 +13,12 @@ offer_max_salary decimal not null
 
 create table candidates (
   candidate_id int auto_increment primary key not null,
-  first_name VARCHAR(40) not null,
-  last_name VARCHAR(40) not null,
-  email VARCHAR(30) not null,
-  phone_number VARCHAR(12),
-  job_offer_id INT,
-  company_id INT,
+  first_name varchar(40) not null,
+  last_name varchar(40) not null,
+  email varchar(30) not null,
+  phone_number varchar(12),
+  job_offer_id int,
+  company_id int,
   foreign key (job_offer_id) references job_offers(offer_id),
   foreign key (company_id) references companies(company_id)
 )
@@ -30,12 +30,13 @@ insert into companies (trade, number_of_employees) values ('Kogucik', 100)
 insert into companies (trade, number_of_employees) values ('CCC', 50)
 select * from companies 
 
-insert into job_offers (offer_title, offer_min_salary, offer_max_salary) values ('Oferta 1', 4000, 6000)
-insert into job_offers (offer_title, offer_min_salary, offer_max_salary) values ('Oferta 2', 4500, 6500)
+insert into job_offers (offer_title, offer_min_salary, offer_max_salary) values ('Mechanik', 3000, 7000)
+insert into job_offers (offer_title, offer_min_salary, offer_max_salary) values ('Informatyk', 3500, 7500)
 select * from job_offers
 
 insert into candidates (first_name, last_name, email, phone_number, job_offer_id, company_id) values ('Jan', 'Kowalski', 'jan.kowalski@example.com', '123 456 789', 1, 1)
 insert into candidates (first_name, last_name, email, phone_number, job_offer_id, company_id) values ('Anna', 'Nowak', 'anna.nowak@example.com', '987 654 321', 2, 2)
+insert into candidates (first_name, last_name, email, phone_number, job_offer_id, company_id) values ('Piotr','Zimny','piotrekz@gmail.com','666 444 888', 3, 1)
 select * from candidates
 
 update companies set number_of_employees = 120 where company_id = 1
