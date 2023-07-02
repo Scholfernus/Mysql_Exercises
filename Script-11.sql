@@ -10,17 +10,17 @@ create table orders222 (
   order_number varchar(50) not null,
   customer_id int not null,
   status_id int,
-  CONSTRAINT fk_orders222_customer FOREIGN KEY (customer_id) 
-  REFERENCES customer(customer_id),
-  CONSTRAINT fk_orders222_order_status FOREIGN KEY (status_id) 
-  REFERENCES order_statuses(order_status_id)
+  constraint fk_orders222_customer foreign key (customer_id) 
+  references customer(customer_id),
+  constraint fk_orders222_order_status foreign key (status_id) 
+  references order_statuses(order_status_id)
 )
 select * from orders222
 
-CREATE TABLE customer (
-  customer_id INT auto_increment primary key,
-  customer_name VARCHAR(50) not null,
-  customer_email VARCHAR(50) not null
+create table if not exists customer (
+  customer_id int auto_increment primary key,
+  customer_name varchar(50) not null,
+  customer_email varchar(50) not null
   )
   
 
