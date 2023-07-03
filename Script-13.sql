@@ -73,3 +73,12 @@ select readers.firstname, readers.lastname, count(wypożyczenia.book_id) as licz
 from readers
 left join wypożyczenia on readers.id_reader = wypożyczenia.czytelnik_id 
 group by readers.firstname, readers.lastname; 
+select * from wypożyczenia
+select * from readers
+select * from books
+select * from biblioteka
+-- Zapytanie, które zwraca id biblioteki wraz z autorem, tytułem oraz 
+-- rokiem wydania książki
+select biblioteka.id_biblioteki, books.author, books.title, books.yearOfEdition 
+from biblioteka
+join books on biblioteka.books_id = books.book_id 
