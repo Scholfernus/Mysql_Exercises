@@ -28,18 +28,21 @@ create trigger before_employee_insert
 before insert on employees
 for each row 
 begin	
-set @total_names = 5;
-set @random_index = floor(rand() * @total_names) + 1;
-case @random_index
-when @random_index = 1 then set new.first_name = 'John';
-when @random_index = 2 then set new.first_name = 'Michael';
-when @random_index = 3 then set new.first_name = 'Emily';
-when @random_index = 4 then set new.first_name = 'Sophia';
-when @random_index = 5 then set new.first_name = 'David';
+	declare total_names int;
+	declare random_index int;
+set total_names = 5;
+set random_index = floor(rand() * total_names) + 1;
+case random_index
+when 1 then set new.first_name = 'John';
+when 2 then set new.first_name = 'Michael';
+when 3 then set new.first_name = 'Emily';
+when 4 then set new.first_name = 'Sophia';
+when 5 then set new.first_name = 'David';
 else set new.first_name = 'Unknown';    
 end case;
 set new.change_date = now();
 end;
-insert into employees (last_name) values ( 'Zoroo');
+insert into employees (last_name) values ( 'łowicz');
 select * from employees
+
 
